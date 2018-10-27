@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: service-admin
+  boot:
+    admin:
+      routes:
+        # 管理监控 端点
+        endpoints: env,metrics,dump,jolokia,info,configprops,trace,logfile,refresh,flyway,liquibase,heapdump,loggers,auditevents,hystrix.stream,activiti
+      turbine:
+        clusters: default
+        location: service-turbine
+# 配置一些乱七八糟的东东
+endpoints:
+  health:
+    sensitive: false
+    enabled: true
+  actuator:
+    enabled: true
+    sensitive: false
+  beans:
+    sensitive: false
+    enabled: true
+server:
+  port: 5000
+  instance:
+    metadata-map:
+      user.name: admin
+      user.password: 123
+management:
+  security:
+    # 关闭安全验证
+    enabled: false
+logging:
+  # 日志输出路径
+  file: logs/boot-admin-sample.log
+security:
+  user:
+    name: admin
+    password: 123
+  basic:
+    # 是否启用启用基本身份验证
+    enabled: false
