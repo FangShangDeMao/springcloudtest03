@@ -1,6 +1,6 @@
 feign:
   hystrix:
-    # ÆôÓÃfeignÈÛ¶Ï
+    # 
     enabled: true
 
 server:
@@ -16,7 +16,7 @@ spring:
       suffix: .html
     static-path-pattern: /**
 
-#pagehelper·ÖÒ³²å¼ş
+#pagehelper
 pagehelper:
   helperDialect: mysql
   reasonable: true
