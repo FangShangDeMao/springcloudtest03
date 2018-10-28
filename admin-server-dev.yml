@@ -1,6 +1,6 @@
 spring:
   application:
-    name: service-admin
+    name: admin-server
   boot:
     admin:
       routes:
@@ -8,7 +8,7 @@ spring:
         endpoints: env,metrics,dump,jolokia,info,configprops,trace,logfile,refresh,flyway,liquibase,heapdump,loggers,auditevents,hystrix.stream,activiti
       turbine:
         clusters: default
-        location: service-turbine
+        location: eureka-turbine
 # 配置一些乱七八糟的东东
 endpoints:
   health:
@@ -26,13 +26,6 @@ server:
     metadata-map:
       user.name: admin
       user.password: 123
-management:
-  security:
-    # 关闭安全验证
-    enabled: false
-logging:
-  # 日志输出路径
-  file: logs/boot-admin-sample.log
 security:
   user:
     name: admin
