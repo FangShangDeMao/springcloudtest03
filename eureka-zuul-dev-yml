@@ -1,0 +1,24 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: eureka-zuul
+zuul:
+  routes:
+    # 自定义  将以/hiapi开头的url路由到eureka-clien服务  zuul在路由转发会做负载均衡
+    user-cusumer:
+      path: /zuul/**
+      serviceId: user-cusumer
+  ribbon-isolation-strategy: thread   #设置Hystrix隔离策略为线程池
+  threadPool:
+    useSeparateThreadPools: true
+    threadPoolKeyPrefix: zuul
+  # 忽略的服务 即配置不可用的访问路由  值为 "*" 时所有微服务名不可作为路由网关
+  ignored-services: *
+
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: false #禁用超时
